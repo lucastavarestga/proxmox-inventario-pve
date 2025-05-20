@@ -195,7 +195,7 @@ pct list | grep "stopped" >> $OUTPUT_FILE
 echo "" >> $OUTPUT_FILE
 
 echo "Configuracoes Completas de Pools, VMs, Containers e Storages :" >> $OUTPUT_FILE
-pvesh get /cluster/resources
+pvesh get /cluster/resources >> $OUTPUT_FILE 
 echo "" >> $OUTPUT_FILE
 
 #echo "Configurações de Máquinas Virtuais (Exemplo: Vmid 100, para todas qm config <vmid>):" >> $OUTPUT_FILE
