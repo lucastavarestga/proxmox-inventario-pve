@@ -1,5 +1,7 @@
 # Inventário Proxmox VE
-Este repositório contém um script inventario_proxmox_ve.sh para gerar investario no Proxmox VE detalhado sobre o sistema Proxmox VE em uso. 
+Este repositório contém um script inventario_proxmox_ve.sh para gerar inventario no Proxmox VE detalhado sobre o sistema Proxmox VE em uso. 
+
+*ATENÇÃO: APENAS PARA PREGUIÇOSOS* KKKK
 
 Seguem as instruções para download e uso do script.
 
