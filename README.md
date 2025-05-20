@@ -39,9 +39,11 @@ sh -x inventario_proxmox_ve.sh
 4. Localização do Arquivo Gerado
 O relatório gerado será salvo no mesmo diretório em que o script foi executado, com o seguinte formato de nome:
 
-proxmoxdocumentation_.txt
+```
+proxmox_documentation_pved_20250520_1602.txt
+```
 
-5. Resumo do Conteúdo
+5. Resumo
 O relatório gerado incluirá:
 
 Informações do sistema e do Proxmox VE
@@ -64,3 +66,5 @@ Versão: 1.4.1
 Data de Lançamento: Maio/2025
 
 Elaborado por: Lucas Tavares Soares
+
+Espero ter ajudado em algo, um grande abraço.
