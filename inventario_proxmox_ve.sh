@@ -12,7 +12,7 @@ echo "-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-" >> $OUTPUT_FILE
 echo "Elaborado por: Lucas Tavares Soares" >> $OUTPUT_FILE
 echo "Contato: lucas@fkmais.com.br" >> $OUTPUT_FILE
 echo "Linkedin https://www.linkedin.com/in/lucastavarestga/  >> $OUTPUT_FILE
-echo "Versao: 1.4.1" >> $OUTPUT_FILE
+echo "Versao: 1.4.2" >> $OUTPUT_FILE
 echo "Maio/2025" >> $OUTPUT_FILE
 echo "-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-" >> $OUTPUT_FILE
 echo "" >> $OUTPUT_FILE
@@ -192,6 +192,10 @@ echo "" >> $OUTPUT_FILE
 
 echo "Containers LXC Desligados:" >> $OUTPUT_FILE
 pct list | grep "stopped" >> $OUTPUT_FILE
+echo "" >> $OUTPUT_FILE
+
+echo "Configuracoes Completas de Pools, VMs, Containers e Storages :" >> $OUTPUT_FILE
+pvesh get /cluster/resources
 echo "" >> $OUTPUT_FILE
 
 #echo "Configurações de Máquinas Virtuais (Exemplo: Vmid 100, para todas qm config <vmid>):" >> $OUTPUT_FILE
