@@ -6,18 +6,18 @@ Seguem as instruções para download e uso do script.
 1. Baixar o Arquivo
 Para baixar o arquivo inventario_proxmox_ve.sh, você pode usar o curl ou o wget diretamente do terminal:
 
-# Usando curl
+- Usando curl
 ```
 curl -O https://raw.githubusercontent.com/lucastavarestga/proxmox-inventario-pve/main/inventario_proxmox_ve.sh
 ```
 
-# Ou usando wget
+- Ou usando wget
 ```
 wget https://raw.githubusercontent.com/lucastavarestga/proxmox-inventario-pve/main/inventario_proxmox_ve.sh
 ```
 
 2. Definir Permissões
-Após o download, você precisa definir as permissões para que o script possa ser executado. Execute o seguinte comando:
+Setando as permissõs:
 
 ```
 chmod +x inventario_proxmox_ve.sh
