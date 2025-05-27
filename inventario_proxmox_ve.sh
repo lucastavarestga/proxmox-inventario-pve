@@ -114,10 +114,6 @@ if command -v zpool &> /dev/null; then
     zpool status -v >> $OUTPUT_FILE
     echo " " >> $OUTPUT_FILE
 
-    echo "  Mostrar histórico de comandos para todos os pools (zpool history):" >> $OUTPUT_FILE
-    zpool history >> $OUTPUT_FILE
-    echo " " >> $OUTPUT_FILE
-
     echo "  Mostrar todas as propriedades de uma pool (zpool get all):" >> $OUTPUT_FILE
     zpool get all >> $OUTPUT_FILE
     echo " " >> $OUTPUT_FILE
