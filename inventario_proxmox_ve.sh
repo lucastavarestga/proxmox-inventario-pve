@@ -103,35 +103,46 @@ else
 fi
 echo "" >> $OUTPUT_FILE
 
-echo "Informações de ZFS:" >> $OUTPUT_FILE
-echo "ZFS Pools:" >> $OUTPUT_FILE
-if command -v zpool &> /dev/null; then
-    echo "  Listar todos os pools do ZFS (zpool list):" >> $OUTPUT_FILE
-    zpool list >> $OUTPUT_FILE 2>&1 # Redireciona stderr também para evitar mensagens de erro no terminal
-    echo " " >> $OUTPUT_FILE
+echo "Informações de ZFS:" >> "$OUTPUT_FILE"
+echo "ZFS Pools:" >> "$OUTPUT_FILE"
 
-    echo "  Mostrar status detalhado e saúde do pool (zpool status -v):" >> $OUTPUT_FILE
-    zpool status -v >> $OUTPUT_FILE
-    echo " " >> $OUTPUT_FILE
-
-    echo "  Mostrar todas as propriedades de uma pool (zpool get all):" >> $OUTPUT_FILE
-    zpool get all >> $OUTPUT_FILE
-    echo " " >> $OUTPUT_FILE
+if ! command -v zpool >/dev/null 2>&1; then
+    echo "  pool de armazenamento não encontrado no sistema." >> "$OUTPUT_FILE"
 else
-    echo "  Comando zpool não encontrado ou nenhum pool ZFS disponível." >> $OUTPUT_FILE
+    # Verifica se há pools listados (ignorando a linha de cabeçalho)
+    if zpool list -H >/dev/null 2>&1; then
+        echo "  Listar todos os pools do ZFS (zpool list):" >> "$OUTPUT_FILE"
+        zpool list >> "$OUTPUT_FILE" 2>&1
+        echo " " >> "$OUTPUT_FILE"
+
+        echo "  Mostrar status detalhado e saúde do pool (zpool status -v):" >> "$OUTPUT_FILE"
+        zpool status -v >> "$OUTPUT_FILE" 2>&1
+        echo " " >> "$OUTPUT_FILE"
+
+        echo "  Mostrar todas as propriedades de uma pool (zpool get all):" >> "$OUTPUT_FILE"
+        zpool get all >> "$OUTPUT_FILE" 2>&1
+        echo " " >> "$OUTPUT_FILE"
+    else
+        echo "  Nenhum pool ZFS disponível." >> "$OUTPUT_FILE"
+    fi
 fi
-echo "" >> $OUTPUT_FILE
+echo "" >> "$OUTPUT_FILE"
 
-echo "ZFS Filesystems:" >> $OUTPUT_FILE
-if command -v zfs &> /dev/null; then
-    echo "  Listar todos os pools do ZFS (zfs list):" >> $OUTPUT_FILE
-    zfs list >> $OUTPUT_FILE
-    echo " " >> $OUTPUT_FILE
+echo "Informações ZFS Filesystem:" >> "$OUTPUT_FILE"
 
+if ! command -v zfs >/dev/null 2>&1; then
+    echo "  pool de armazenamento não encontrado no sistema." >> "$OUTPUT_FILE"
 else
-    echo "  Comando zfs não encontrado ou nenhum filesystem ZFS disponível." >> $OUTPUT_FILE
+    # Executa zfs list e verifica a saída
+    if zfs list 2>&1 | grep -q "no datasets available"; then
+        echo "  pool de armazenamento não encontrado no sistema." >> "$OUTPUT_FILE"
+    else
+        echo "  Listar todos os datasets ZFS (zfs list):" >> "$OUTPUT_FILE"
+        zfs list >> "$OUTPUT_FILE" 2>&1
+        echo " " >> "$OUTPUT_FILE"
+    fi
 fi
-echo "" >> $OUTPUT_FILE
+echo "" >> "$OUTPUT_FILE"
 
 echo "Montagens de Sistema de Arquivos (/etc/fstab e mount):" >> $OUTPUT_FILE
 echo "  Configuração de Montagens Fixas (/etc/fstab):" >> $OUTPUT_FILE
