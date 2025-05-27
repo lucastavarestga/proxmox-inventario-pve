@@ -175,7 +175,7 @@ echo "" >> $OUTPUT_FILE
 
 echo "Configuração de Interfaces (ip -br -c a, filtrado):" >> $OUTPUT_FILE
 # Correção do pipe para o grep, garantindo que egrep seja usado
-ip -br -c a | egrep -v 'fwbr|fwln|tap' >> $OUTPUT_FILE
+ip -br -c a | sed -r 's/\x1B\[[0-9;]*[mGK]//g' | egrep -v 'fwbr|fwln|tap' >> $OUTPUT_FILE
 echo "" >> $OUTPUT_FILE
 
 echo "Configuração de Bridge Proxmox (cat /etc/network/interfaces):" >> $OUTPUT_FILE
