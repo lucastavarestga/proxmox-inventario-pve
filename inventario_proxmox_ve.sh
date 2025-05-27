@@ -128,9 +128,6 @@ if command -v zfs &> /dev/null; then
     zfs list >> $OUTPUT_FILE
     echo " " >> $OUTPUT_FILE
 
-    echo "  Mostrar todas as propriedades de um conjunto de dados (zfs get all):" >> $OUTPUT_FILE
-    zfs get all >> $OUTPUT_FILE
-    echo " " >> $OUTPUT_FILE
 else
     echo "  Comando zfs não encontrado ou nenhum filesystem ZFS disponível." >> $OUTPUT_FILE
 fi
