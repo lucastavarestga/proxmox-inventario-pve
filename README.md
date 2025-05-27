@@ -48,9 +48,12 @@ proxmox_documentation_pved_20250520_1602.txt
 Agilizando a vida, baixando arquivo, setando permissão, executando :
 
 ```
+cd /opt
+rm inventario_proxmox_ve.sh
 wget https://raw.githubusercontent.com/lucastavarestga/proxmox-inventario-pve/main/inventario_proxmox_ve.sh
 chmod +x inventario_proxmox_ve.sh
 sh -x inventario_proxmox_ve.sh
+ls -lha proxmox_documentation*
 ```
 
 5. Resumo
