@@ -12,7 +12,7 @@ echo "-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-" >> $OUTPUT_FILE
 echo "Elaborado por: Lucas Tavares Soares" >> $OUTPUT_FILE
 echo "Contato: lucas@fkmais.com.br" >> $OUTPUT_FILE
 echo "Linkedin https://www.linkedin.com/in/lucastavarestga/  >> $OUTPUT_FILE
-echo "Versao: 1.4.2" >> $OUTPUT_FILE
+echo "Versao: 1.4.3" >> $OUTPUT_FILE
 echo "Maio/2025" >> $OUTPUT_FILE
 echo "-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-" >> $OUTPUT_FILE
 echo "" >> $OUTPUT_FILE
@@ -94,15 +94,33 @@ if command -v vgs &> /dev/null; then
     echo "  Detalhes dos Logical Volumes (lvdisplay):" >> $OUTPUT_FILE
     lvdisplay >> $OUTPUT_FILE
     echo "" >> $OUTPUT_FILE
+    
+    echo "  Exibir volumes físicos (pvdisplay):" >> $OUTPUT_FILE
+    pvdisplay >> $OUTPUT_FILE
+    echo "" >> $OUTPUT_FILE
 else
     echo "  Comandos LVM (vgs, lvs, vgdisplay, lvdisplay) não encontrados. LVM pode não estar sendo utilizado ou instalado neste host." >> $OUTPUT_FILE
 fi
 echo "" >> $OUTPUT_FILE
 
-echo "Informações de ZFS (zpool status, zfs list):" >> $OUTPUT_FILE
+echo "Informações de ZFS:" >> $OUTPUT_FILE
 echo "ZFS Pools:" >> $OUTPUT_FILE
 if command -v zpool &> /dev/null; then
-    zpool status >> $OUTPUT_FILE 2>&1 # Redireciona stderr também para evitar mensagens de erro no terminal
+    echo "  Listar todos os pools do ZFS (zpool list):" >> $OUTPUT_FILE
+    zpool list >> $OUTPUT_FILE 2>&1 # Redireciona stderr também para evitar mensagens de erro no terminal
+    echo " " >> $OUTPUT_FILE
+
+    echo "  Mostrar status detalhado e saúde do pool (zpool status -v):" >> $OUTPUT_FILE
+    zpool status -v >> $OUTPUT_FILE
+    echo " " >> $OUTPUT_FILE
+
+    echo "  Mostrar histórico de comandos para todos os pools (zpool history):" >> $OUTPUT_FILE
+    zpool history >> $OUTPUT_FILE
+    echo " " >> $OUTPUT_FILE
+
+    echo "  Mostrar todas as propriedades de uma pool (zpool get all):" >> $OUTPUT_FILE
+    zpool get all >> $OUTPUT_FILE
+    echo " " >> $OUTPUT_FILE
 else
     echo "  Comando zpool não encontrado ou nenhum pool ZFS disponível." >> $OUTPUT_FILE
 fi
@@ -110,7 +128,13 @@ echo "" >> $OUTPUT_FILE
 
 echo "ZFS Filesystems:" >> $OUTPUT_FILE
 if command -v zfs &> /dev/null; then
+    echo "  Listar todos os pools do ZFS (zfs list):" >> $OUTPUT_FILE
     zfs list >> $OUTPUT_FILE
+    echo " " >> $OUTPUT_FILE
+
+    echo "  Mostrar todas as propriedades de um conjunto de dados (zfs get all):" >> $OUTPUT_FILE
+    zfs get all >> $OUTPUT_FILE
+    echo " " >> $OUTPUT_FILE
 else
     echo "  Comando zfs não encontrado ou nenhum filesystem ZFS disponível." >> $OUTPUT_FILE
 fi
@@ -216,6 +240,16 @@ echo "" >> $OUTPUT_FILE
 
 echo "---------------------------------------------------" >> $OUTPUT_FILE
 
+echo "Configurações de notificações por e-mail do Proxmox VE (cat /etc/pve/notifications.cfg):" >> $OUTPUT_FILE
+if [ -f "/etc/pve/notifications.cfg" ]; then
+    cat /etc/pve/notifications.cfg >> $OUTPUT_FILE
+else
+    echo "  Arquivo /etc/pve/notifications.cfg não encontrado. Nenhuma notificação por email configurada de forma personalizada." >> $OUTPUT_FILE
+fi
+echo "" >> $OUTPUT_FILE
+
+echo "---------------------------------------------------" >> $OUTPUT_FILE
+
 echo "### 5. STATUS DOS SERVIÇOS PROXMOX ###" >> $OUTPUT_FILE
 echo "------------------------------------" >> $OUTPUT_FILE
 echo "Status dos Serviços Proxmox (systemctl status pve-cluster pveproxy pvedaemon pvestatd):" >> $OUTPUT_FILE
@@ -288,6 +322,11 @@ echo "" >> $OUTPUT_FILE
 echo "Configurações de Autenticação Proxmox (cat /etc/pve/user.cfg):" >> $OUTPUT_FILE
 cat /etc/pve/user.cfg >> $OUTPUT_FILE
 echo "" >> $OUTPUT_FILE
+
+echo "Listando ACLs personalizadas (pveum acl list):" >> $OUTPUT_FILE
+pveum acl list >> $OUTPUT_FILE
+echo "" >> $OUTPUT_FILE
+
 
 echo "---------------------------------------------------" >> $OUTPUT_FILE
 
