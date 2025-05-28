@@ -12,7 +12,7 @@ echo "-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-" >> $OUTPUT_FILE
 echo "Elaborado por: Lucas Tavares Soares" >> $OUTPUT_FILE
 echo "Contato: lucas@fkmais.com.br" >> $OUTPUT_FILE
 echo "Linkedin https://www.linkedin.com/in/lucastavarestga/  >> $OUTPUT_FILE
-echo "Versao: 1.4.3" >> $OUTPUT_FILE
+echo "Versao: 1.4.4" >> $OUTPUT_FILE
 echo "Maio/2025" >> $OUTPUT_FILE
 echo "-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-" >> $OUTPUT_FILE
 echo "" >> $OUTPUT_FILE
@@ -143,6 +143,18 @@ else
     fi
 fi
 echo "" >> "$OUTPUT_FILE"
+
+echo "Exibir o conteúdo do arquivo (/proc/scsi/scsi) tentando descobrir a controladora RAID (cat /proc/scsi/scsi)" >> $OUTPUT_FILE
+cat /proc/scsi/scsi >> $OUTPUT_FILE
+echo "" >> $OUTPUT_FILE
+
+echo "Listar informações de hardware e filtrar por "perc" >> $OUTPUT_FILE
+lshw -businfo | grep -i perc >> $OUTPUT_FILE
+echo "" >> $OUTPUT_FILE
+
+echo "Listar dispositivos PCI e filtrar por termos relacionados a armazenamento (lspci | grep -i "storage\|raid\|sata\|sas\|hba" --color) >> $OUTPUT_FILE
+lspci | grep -i "storage\|raid\|sata\|sas\|hba" --color >> $OUTPUT_FILE
+echo "" >> $OUTPUT_FILE
 
 echo "Montagens de Sistema de Arquivos (/etc/fstab e mount):" >> $OUTPUT_FILE
 echo "  Configuração de Montagens Fixas (/etc/fstab):" >> $OUTPUT_FILE
