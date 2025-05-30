@@ -74,7 +74,7 @@ Para qualquer dúvida ou contato, você pode me encontrar em
 e-mail: lucastavarestga@gmail.com
 ### [Linkedin lucastavarestga](https://www.linkedin.com/in/lucastavarestga)
 
-Versão: 1.4.1
+Versão: 1.4.4
 
 Data de Lançamento: Maio/2025
 
