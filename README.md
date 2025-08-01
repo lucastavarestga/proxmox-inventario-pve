@@ -71,13 +71,10 @@ Para qualquer dúvida ou contato, você pode me encontrar em
 
 ### Qualquer dúvida, entre em contato.
 
-e-mail: lucastavarestga@gmail.com
-### [Linkedin lucastavarestga](https://www.linkedin.com/in/lucastavarestga)
+<a href="mailto:lucastavarestga@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+<a href="https://www.linkedin.com/in/lucastavarestga" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+<a href="https://youtube.com/@lucastavaressoares" target="_blank"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" target="_blank"></a>
 
-Versão: 1.4.4
+Youtube MasterMindTI
 
-Data de Lançamento: Maio/2025
-
-Elaborado por: Lucas Tavares Soares
-
-Espero ter ajudado em algo, um grande abraço.
+<a href="https://www.youtube.com/@mastermindti" target="_blank"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" target="_blank"></a>
