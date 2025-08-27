@@ -12,8 +12,8 @@ echo "-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-" >> $OUTPUT_FILE
 echo "Elaborado por: Lucas Tavares Soares" >> $OUTPUT_FILE
 echo "Contato: lucas@fkmais.com.br" >> $OUTPUT_FILE
 echo "Linkedin https://www.linkedin.com/in/lucastavarestga/  >> $OUTPUT_FILE
-echo "Versao: 1.4.4" >> $OUTPUT_FILE
-echo "Maio/2025" >> $OUTPUT_FILE
+echo "Versao: 1.4.5" >> $OUTPUT_FILE
+echo "Agosto/2025" >> $OUTPUT_FILE
 echo "-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-" >> $OUTPUT_FILE
 echo "" >> $OUTPUT_FILE
 echo "DOCUMENTAÇÃO DO HOST PROXMOX VE - $(hostname -f)" >> $OUTPUT_FILE # Usando -f para hostname completo
