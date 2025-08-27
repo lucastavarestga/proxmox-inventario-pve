@@ -152,7 +152,7 @@ echo "Listar informações de hardware e filtrar por "perc" >> $OUTPUT_FILE
 lshw -businfo | grep -i perc >> $OUTPUT_FILE
 echo "" >> $OUTPUT_FILE
 
-echo "Listar dispositivos PCI e filtrar por termos relacionados a armazenamento (lspci | grep -i "storage\|raid\|sata\|sas\|hba" --color) >> $OUTPUT_FILE
+echo "Listar dispositivos PCI e filtrar por termos relacionados a armazenamento $(lspci | grep -i "storage\|raid\|sata\|sas\|hba" --color) >> $OUTPUT_FILE
 lspci | grep -i "storage\|raid\|sata\|sas\|hba" --color >> $OUTPUT_FILE
 echo "" >> $OUTPUT_FILE
 
